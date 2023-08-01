@@ -19,7 +19,7 @@ Frontend:
 I've Created this front end using various modules like (Formik, React, React-Dom, Yup)
 
 Formik is used to manage the form input fields
-React, React-Dom is basic React module it is necessary for a React Project 
+React, React-Dom is a basic React module it is necessary for a React Project 
 Yup is used to Validate the user inputs
 
-https://www.loom.com/share/3415416d241047ad96f8fd65dd2b5451?sid=ff2393e0-fd02-4d9e-8026-17ecc02e3a91
+Video Link for Frontend: https://www.loom.com/share/3415416d241047ad96f8fd65dd2b5451
