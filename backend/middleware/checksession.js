@@ -6,7 +6,7 @@ const checkSession = (req, res, next) => {
     try {
     const token = req.cookies.wcid;
     if (!token) {
-        res.status(404).send({"msg":"Invalid Session!!!"});
+        res.status(401).send({"msg":"Invalid Session!!!"});
     }else {
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
         var getUserDataSql = `SELECT * FROM users WHERE id = "${verifyToken}"`;

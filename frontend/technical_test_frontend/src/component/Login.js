@@ -60,7 +60,7 @@ const Login = () => {
 
   useEffect(() => {
     checkLogin();
-  }, [])
+  })
 
   return (
     <>

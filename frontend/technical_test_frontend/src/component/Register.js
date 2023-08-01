@@ -77,7 +77,7 @@ const initialValues = {
 
       useEffect(() => {
         checkLogin();
-      }, [])
+      })
 
       
   return (

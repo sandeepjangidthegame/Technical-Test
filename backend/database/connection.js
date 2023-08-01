@@ -28,5 +28,4 @@ conn.query(tokenSql, (err) => {
 
 // var deptSql = "CREATE TABLE if not exists dept ()" 
 
-
 module.exports = conn;
