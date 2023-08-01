@@ -1,25 +1,60 @@
-# Technical Test
- Create a simple Login System for Test
+#Technical Test
 
-Backend: 
+This repository contains a simple React application with NodeJs for user management. It includes user login, user registration, and a user dashboard with various filters like Date, Sorting, and Department. The backend API is built using Node.js, Express.js, and MySQL database. The API uses JWT token for authentication and is documented using Swagger.
 
-I've started working on this using npm init, setting some information for the project than working on the development part, I use some modules like (bcrypt, dotenv, express, jsonwebtoken, mysql and velidator).
+## Frontend - React App
+### Features
 
-bcrypt is used to convert and compare the password to not store it in plain text format.
-dotenv is used to set some variables to access them anywhere in the project.
-express is used to handle HTTP requests 
-jsonwebtoken is used to create tokens for sessions management
-mysql is used to manage and database
-validator is used to validate the user inputs.
- 
-Video Link1 for Backend: https://www.loom.com/share/f29be6d03cb24214990293d93b2abdb6
+- User Login: Users can log in to access their dashboard.
+- User Registration: New users can register to create an account.
+- User Dashboard: Users can view their dashboard with various filters.
+- Filters: The dashboard supports filtering by Date, Sorting, and Department.
 
-Frontend: 
+### Frontend Technologies
 
-I've Created this front end using various modules like (Formik, React, React-Dom, Yup)
+- React.js
+- useState and useEffect (for state management)
+- Bootstrap (for UI styling)
+- React Router (for routing)
 
-Formik is used to manage the form input fields
-React, React-Dom is a basic React module it is necessary for a React Project 
-Yup is used to Validate the user inputs
+### How to Run the Frontend
 
-Video Link for Frontend: https://www.loom.com/share/3415416d241047ad96f8fd65dd2b5451
+1. Clone this repository to your local machine.
+2. Navigate to the `frontend` directory.
+3. Run `npm install` to install the required dependencies.
+4. Run `npm start` to start the React app.
+5. Open your browser and go to `http://localhost:3001` to access the app.
+
+## Backend API - Node.js with Express.js
+
+### Features
+
+- User Login: Authenticate users and generate JWT tokens.
+- User Registration: Allow new users to register and create an account.
+- Get All Users: Retrieve all users with support for various filters.
+- JWT Token: Use JWT token for secure authentication.
+- Swagger Documentation: API endpoints are documented using Swagger.
+
+### Backend Technologies
+
+- Node.js
+- Express.js
+- MySQL (database)
+- JWT (for authentication)
+- Swagger (for API documentation)
+
+### How to Run the Backend API
+
+1. Clone this repository to your local machine.
+2. Navigate to the `backend` directory.
+3. Run `npm install` to install the required dependencies.
+4. Run `npm start` to start the backend server.
+5. The API will be accessible at `http://localhost:3000`.
+
+## Database - MySQL
+
+The backend API uses a MySQL database for data storage. The database schema is designed to support user registration and user data.
+
+### Database Schema
+
+- `users` table: Contains user information (id, user_name, user_email, user_passwd, dept, etc.).
