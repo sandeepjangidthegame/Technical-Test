@@ -13,3 +13,13 @@ mysql is used to manage and database
 validator is used to validate the user inputs.
  
 Video Link1 for Backend: https://www.loom.com/share/f29be6d03cb24214990293d93b2abdb6
+
+Frontend: 
+
+I've Created this front end using various modules like (Formik, React, React-Dom, Yup)
+
+Formik is used to manage the form input fields
+React, React-Dom is a basic React module it is necessary for a React Project 
+Yup is used to Validate the user inputs
+
+Video Link for Frontend: https://www.loom.com/share/3415416d241047ad96f8fd65dd2b5451
