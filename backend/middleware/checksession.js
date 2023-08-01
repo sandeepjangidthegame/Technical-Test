@@ -9,9 +9,9 @@ const checkSession = (req, res, next) => {
         res.status(404).send({"msg":"Invalid Session!!!"});
     }else {
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
-        var getUserDataSql = `SELECT * FROM users WHERE id = "${verifyToken.id}"`;
+        var getUserDataSql = `SELECT * FROM users WHERE id = "${verifyToken}"`;
         conn.query(getUserDataSql,(err, data)=>{
-            if (err) return res.status(401).send({"msg":"Error!!!"});
+            if (err) return req.userData = "Error!!";
 
             const userData = {
                 "name":data[0].user_name,

@@ -94,6 +94,10 @@ route.post('/login', (req, res) => {
     }
 })
 
+route.get('/cookies', checkSession, (req, res) => {
+    res.status(200).json(req.userData);
+})
+
 route.get('/dashboard', checkSession, (req, res) => {
     res.status(200).json(req.userData);
 })
@@ -102,6 +106,12 @@ route.get('/getallusers', (req, res) => {
     try {
         if (req.query.dept){
             let getDataSql = `SELECT * FROM users WHERE dept = "${req.query.dept}"`;
+            conn.query(getDataSql,(err, data)=>{
+                if (err) return res.status(304).send({"msg":"No Data Found!!!"});
+                res.status(200).json(data[0]);
+            })
+        }else{
+            let getDataSql = `SELECT * FROM users`;
             conn.query(getDataSql,(err, data)=>{
                 if (err) return res.status(304).send({"msg":"No Data Found!!!"});
                 res.status(200).json(data[0]);
