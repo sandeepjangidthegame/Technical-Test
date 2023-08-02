@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const conn = require('../database/connection');
 const route = express();
 const checkSession = require('../middleware/checksession');
+const newUser = require('../database/newuser');
 
 /**
  * @openapi 
@@ -71,7 +72,7 @@ try {
     await bcrypt.hash(user_passwd, 12, (err, hash) => {
         let hashPasswd = hash;
         const checkEmail = `SELECT * FROM users WHERE user_email = "${user_email}"`;
-        conn.query(checkEmail, function(err, result, fields) {
+        conn.query(checkEmail, async function(err, result, fields) {
             if (result.length > 0){
                 res.status(401).send({"msg":"Email Already Exists!!!"})
             }else {
@@ -88,17 +89,27 @@ try {
     
         create_date = year + "-" + month +"-"+ date;
         
-        status=true;
-    
-        var regSql = `INSERT INTO users (id, user_name, user_email, user_passwd, dept, create_date, status) VALUES ("${id}", "${user_name}", "${user_email}", "${hashPasswd}", "${dept}", "${create_date}", "${status}")`;
-    
-        console.log(regSql);
-    
-        conn.query(regSql, (err) => {
-            if (err) throw err;
-            console.log("Register Successful!");     
+        user_status=true;
+
+        const user = new newUser(id, user_name, user_email, hashPasswd, dept, create_date, user_status);
+
+        await user.save().then(result => {
             res.status(200).json({ 'msg': "User registered successfully!" });
-        })
+        }).catch(error => {
+            res.status(401).json({ 'msg': "Somthing Went Wrong" });
+        });
+
+        
+                
+        // var regSql = `INSERT INTO users (id, user_name, user_email, user_passwd, dept, create_date, status) VALUES ("${id}", "${user_name}", "${user_email}", "${hashPasswd}", "${dept}", "${create_date}", "${status}")`;
+    
+        // console.log(regSql);
+    
+        // conn.query(regSql, (err) => {
+        //     if (err) throw err;
+        //     console.log("Register Successful!");     
+        //     res.status(200).json({ 'msg': "User registered successfully!" });
+        // })
     
             }
         }); 
